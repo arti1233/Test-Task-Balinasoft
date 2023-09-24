@@ -2,8 +2,9 @@ import Foundation
 import SnapKit
 import UIKit
 
-final class PhotoUITableViewCell: UITableViewCell {
-    static var key = "PhotoUITableViewCell"
+final class PhotoCell: UITableViewCell {
+ 
+    static var key = "PhotoCell"
     
     private lazy var mainView: UIView = {
         var view = UIView()
@@ -19,7 +20,6 @@ final class PhotoUITableViewCell: UITableViewCell {
     private lazy var photoImage: UIImageView = {
         var view = UIImageView()
         view.contentMode = .scaleToFill
-        view.image = UIImage(systemName: "exclamationmark.icloud.fill")
         view.tintColor = .black
         return view
     }()
@@ -28,12 +28,12 @@ final class PhotoUITableViewCell: UITableViewCell {
         var label = UILabel()
         label.font = UIFont.systemFont(ofSize: 19, weight: .bold)
         label.numberOfLines = 0
-        label.text = "lalalal"
         return label
     }()
-    
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         contentView.addSubview(mainView)
         mainView.addSubview(photoImage)
         mainView.addSubview(nameLabel)        
@@ -41,8 +41,8 @@ final class PhotoUITableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        photoImage.image = UIImage(systemName: "exclamationmark.icloud.fill")?.withTintColor(.black)
-        nameLabel.text = "lalalal"
+        photoImage.image = UIImage()
+        nameLabel.text = ""
     }
     
     override func updateConstraints() {

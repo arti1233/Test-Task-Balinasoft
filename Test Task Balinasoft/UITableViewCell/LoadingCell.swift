@@ -2,9 +2,9 @@ import Foundation
 import UIKit
 import SnapKit
 
-class LoadingTableViewCell: UITableViewCell {
+final class LoadingCell: UITableViewCell {
     
-    static var key = "LoadingTableViewCell"
+    static var key = "LoadingCell"
     
     private lazy var spinnerView: UIActivityIndicatorView = {
         var view = UIActivityIndicatorView()
