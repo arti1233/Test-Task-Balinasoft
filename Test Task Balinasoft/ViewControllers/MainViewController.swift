@@ -143,6 +143,10 @@ extension MainViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
+            showAllert(text: "Device has no camera.", title: "Camera Error")
+            return
+        }
         photoIndexPath = indexPath
         present(imagePicker, animated: true)
     }
