@@ -10,7 +10,6 @@
 		AE71FD692AC0377400997564 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AE71FD682AC0377400997564 /* SnapKit */; };
 		AE71FD6C2AC0378200997564 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = AE71FD6B2AC0378200997564 /* Alamofire */; };
 		AE71FD6E2AC037AA00997564 /* AlamofireProviderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71FD6D2AC037AA00997564 /* AlamofireProviderService.swift */; };
-		AE71FD702AC03A3D00997564 /* PhotosModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71FD6F2AC03A3D00997564 /* PhotosModel.swift */; };
 		AE71FD722AC0452A00997564 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71FD712AC0452A00997564 /* PhotoCell.swift */; };
 		AE71FD742AC04B9000997564 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71FD732AC04B9000997564 /* LoadingCell.swift */; };
 		AE71FD762AC0562100997564 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE71FD752AC0562100997564 /* String+Extension.swift */; };
@@ -19,11 +18,12 @@
 		AEBDBC182AC0302B001E9379 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBDBC172AC0302B001E9379 /* MainViewController.swift */; };
 		AEBDBC1D2AC0302C001E9379 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEBDBC1C2AC0302C001E9379 /* Assets.xcassets */; };
 		AEBDBC202AC0302C001E9379 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBDBC1E2AC0302C001E9379 /* LaunchScreen.storyboard */; };
+		AEECAFAE2BC4193100C06A2E /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECAFAD2BC4193100C06A2E /* MainViewModel.swift */; };
+		AEECAFB22BC41D1200C06A2E /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEECAFB12BC41D1200C06A2E /* DataModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE71FD6D2AC037AA00997564 /* AlamofireProviderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireProviderService.swift; sourceTree = "<group>"; };
-		AE71FD6F2AC03A3D00997564 /* PhotosModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosModel.swift; sourceTree = "<group>"; };
 		AE71FD712AC0452A00997564 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		AE71FD732AC04B9000997564 /* LoadingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		AE71FD752AC0562100997564 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -34,6 +34,8 @@
 		AEBDBC1C2AC0302C001E9379 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEBDBC1F2AC0302C001E9379 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEBDBC212AC0302C001E9379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEECAFAD2BC4193100C06A2E /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		AEECAFB12BC41D1200C06A2E /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				AE71FD6D2AC037AA00997564 /* AlamofireProviderService.swift */,
-				AE71FD6F2AC03A3D00997564 /* PhotosModel.swift */,
 			);
 			path = NetworkService;
 			sourceTree = "<group>";
@@ -75,12 +76,12 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		AE71FD7A2AC0762300997564 /* ViewControllers */ = {
+		AE71FD7A2AC0762300997564 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				AEBDBC172AC0302B001E9379 /* MainViewController.swift */,
 			);
-			path = ViewControllers;
+			path = View;
 			sourceTree = "<group>";
 		};
 		AE71FD7B2AC0763100997564 /* Delegate */ = {
@@ -112,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				AE71FD7B2AC0763100997564 /* Delegate */,
-				AE71FD7A2AC0762300997564 /* ViewControllers */,
+				AEECAFAF2BC41BAA00C06A2E /* MainModule */,
 				AE71FD782AC075FF00997564 /* NetworkService */,
 				AE71FD772AC075E600997564 /* UITableViewCell */,
 				AE71FD792AC0761500997564 /* Extension */,
@@ -121,6 +122,32 @@
 				AEBDBC212AC0302C001E9379 /* Info.plist */,
 			);
 			path = "Test Task Balinasoft";
+			sourceTree = "<group>";
+		};
+		AEECAFAF2BC41BAA00C06A2E /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				AEECAFB02BC41BC900C06A2E /* MainViewModel */,
+				AE71FD7A2AC0762300997564 /* View */,
+				AEECAFB32BC41D1800C06A2E /* Model */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		AEECAFB02BC41BC900C06A2E /* MainViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AEECAFAD2BC4193100C06A2E /* MainViewModel.swift */,
+			);
+			path = MainViewModel;
+			sourceTree = "<group>";
+		};
+		AEECAFB32BC41D1800C06A2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEECAFB12BC41D1200C06A2E /* DataModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEECAFB22BC41D1200C06A2E /* DataModel.swift in Sources */,
 				AE71FD762AC0562100997564 /* String+Extension.swift in Sources */,
 				AEBDBC182AC0302B001E9379 /* MainViewController.swift in Sources */,
 				AE71FD6E2AC037AA00997564 /* AlamofireProviderService.swift in Sources */,
@@ -208,7 +236,7 @@
 				AEBDBC142AC0302B001E9379 /* AppDelegate.swift in Sources */,
 				AEBDBC162AC0302B001E9379 /* SceneDelegate.swift in Sources */,
 				AE71FD722AC0452A00997564 /* PhotoCell.swift in Sources */,
-				AE71FD702AC03A3D00997564 /* PhotosModel.swift in Sources */,
+				AEECAFAE2BC4193100C06A2E /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
