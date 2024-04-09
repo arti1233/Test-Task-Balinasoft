@@ -15,7 +15,6 @@ final class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.showsVerticalScrollIndicator = false
-        tableView.backgroundColor = .white
         tableView.register(PhotoCell.self, forCellReuseIdentifier: PhotoCell.key)
         tableView.register(LoadingCell.self, forCellReuseIdentifier: LoadingCell.key)
         tableView.separatorStyle = .none
@@ -48,6 +47,8 @@ final class MainViewController: UIViewController {
             showAllert(text: text, title: title)
         }
     }
+    
+    //MARK: UIAlertController
     
     func showAllert(text: String, title: String) {
         let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
@@ -104,7 +105,7 @@ extension MainViewController: UITableViewDataSource {
         case .photos:
             return viewModel.getNumberOfCells()
         case .loader:
-            return viewModel.getPage() <= viewModel.getMaxPage() ? 1 : 0
+            return viewModel.showLoader() 
         }
     }
     

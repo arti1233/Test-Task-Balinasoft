@@ -4,6 +4,8 @@ import UIKit
 
 final class PhotoCell: UITableViewCell {
  
+    //MARK: - Properties
+    
     static var key = "PhotoCell"
     
     private lazy var mainView: UIView = {
@@ -31,6 +33,7 @@ final class PhotoCell: UITableViewCell {
         return label
     }()
 
+    //MARK: - LifeCycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
@@ -39,6 +42,12 @@ final class PhotoCell: UITableViewCell {
         mainView.addSubview(nameLabel)        
     }
     
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - UI
     override func prepareForReuse() {
         super.prepareForReuse()
         photoImage.image = UIImage()
@@ -70,9 +79,4 @@ final class PhotoCell: UITableViewCell {
         photoImage.image = photo
         nameLabel.text = text
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 }

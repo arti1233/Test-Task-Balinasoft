@@ -4,6 +4,7 @@ import SnapKit
 
 final class LoadingCell: UITableViewCell {
     
+    //MARK: - Properties
     static var key = "LoadingCell"
     
     private lazy var spinnerView: UIActivityIndicatorView = {
@@ -15,6 +16,7 @@ final class LoadingCell: UITableViewCell {
         return view
     }()
     
+    //MARK: - LifeCycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(spinnerView)
@@ -25,6 +27,7 @@ final class LoadingCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - UI
     override func updateConstraints() {
         super.updateConstraints()
         spinnerView.snp.makeConstraints {

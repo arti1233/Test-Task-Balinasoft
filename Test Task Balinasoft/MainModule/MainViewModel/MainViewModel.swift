@@ -8,12 +8,11 @@ private enum Constants {
 protocol MainViewModelProtocol {
     func sendPhotoToServer(photo: UIImage)
     func getPhotos()
-    func loadImageToCache()
     func changeSentPhotoIndexPath(indexPath: IndexPath?)
     func getNumberOfCells() -> Int
-    func getPage() -> Int
-    func getMaxPage() -> Int
+    func showLoader() -> Int
     func configurePhotoCell(indexPath: IndexPath, cell: PhotoCell) -> UITableViewCell
+    
     var onUpdateTableView: (() -> Void)? { get set }
     var onPresentAlert: ((_ text: String, _ title: String) -> Void)? { get set }
 }
@@ -22,6 +21,8 @@ final class MainViewModel: MainViewModelProtocol {
     
     var onPresentAlert: ((String, String) -> Void)?
     var onUpdateTableView: (() -> Void)?
+   
+    //MARK: - Properties
     
     private var imageCache = NSCache<NSString, UIImage>()
     private var alamofireProvider: AlamofireProtocol = AlamofireProvider()
@@ -33,6 +34,10 @@ final class MainViewModel: MainViewModelProtocol {
     
     
     //MARK: - Business Logic
+    
+    func showLoader() -> Int {
+        page <= maxPage ? 1 : 0
+    }
     
     func getNumberOfCells() -> Int {
         arrayPhotos.count
@@ -47,14 +52,6 @@ final class MainViewModel: MainViewModelProtocol {
         cell.configureUI(photo: image, text: arrayPhotos[indexPath.row].name)
         cell.updateConstraints()
         return cell
-    }
-    
-    func getPage() -> Int {
-        page
-    }
-    
-    func getMaxPage() -> Int {
-        maxPage
     }
     
     func changeSentPhotoIndexPath(indexPath: IndexPath?) {
@@ -93,7 +90,7 @@ final class MainViewModel: MainViewModelProtocol {
         })
     }
     
-    func loadImageToCache() {
+    private func loadImageToCache() {
         let group = DispatchGroup()
         for info in arrayPhotos {
             group.enter()
